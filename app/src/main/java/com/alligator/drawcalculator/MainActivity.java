@@ -2,6 +2,8 @@ package com.alligator.drawcalculator;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity
 {
+    // <editor-fold desc="Public Declarations">
+    public String CurrentString;
+    public char CurrentOperand;
+    public double Result;
+    // </editor-fold>
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,6 +31,14 @@ public class MainActivity extends AppCompatActivity
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Log.d("tag","working");
+    }
+
+    public void GetValue(View v)
+    {
+        if (!(v instanceof Button)) return;
+        Button currButton = (Button) v;
+        char currentVal = currButton.getText().charAt(0);
+        
+
     }
 }
