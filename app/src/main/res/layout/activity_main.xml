@@ -15,36 +15,85 @@
         <TextView
             android:id="@+id/solutionView"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:text="@string/default_value" />
+            android:layout_height="53dp"
+            android:gravity="top|end"
+            android:text="@string/default_value"
+            android:textColor="#86505050"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="3dp"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/currentCalc"
             android:layout_width="match_parent"
-            android:layout_height="104dp"
-            android:text="@string/default_value" />
+            android:layout_height="125dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="3dp"
+            android:gravity="bottom|end"
+            android:text="@string/default_value"
+            android:textSize="32sp" />
 
         <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            app:rowCount="5"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="1dp"
             app:columnCount="4"
-            >
+            app:rowCount="5">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/ACBtn"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="8dp"
                 android:backgroundTint="#7C63A9"
                 android:text="AC"
-                app:cornerRadius="36dp"
+                android:textSize="18sp"
+                app:cornerRadius="100dp"
                 app:iconGravity="textStart"
-                app:iconPadding="10dp"
-                android:textSize="18dp"
-                android:layout_margin="8dp"/>
+                app:iconPadding="10dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/percentBtn"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#7C63A9"
+                android:text="%"
+                android:textSize="20sp"
+                app:cornerRadius="100dp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/CBtn"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#7C63A9"
+                android:text="C"
+                android:textSize="20sp"
+                app:cornerRadius="100dp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/DivBtn"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#7C63A9"
+                android:text="/"
+                android:textSize="20sp"
+                app:cornerRadius="100dp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp" />
 
 
         </androidx.gridlayout.widget.GridLayout>
