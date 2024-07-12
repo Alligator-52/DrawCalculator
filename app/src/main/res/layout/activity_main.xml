@@ -10,14 +10,44 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="#FF0202"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button"
+        <TextView
+            android:id="@+id/solutionView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_height="80dp"
+            android:text="@string/default_value" />
+
+        <TextView
+            android:id="@+id/currentCalc"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:text="@string/default_value" />
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:rowCount="5"
+            app:columnCount="4"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ACBtn"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:backgroundTint="#7C63A9"
+                android:text="AC"
+                app:cornerRadius="36dp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"
+                android:textSize="18dp"
+                android:layout_margin="8dp"/>
+
+
+
+
+        </androidx.gridlayout.widget.GridLayout>
     </LinearLayout>
 </RelativeLayout>
 <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->

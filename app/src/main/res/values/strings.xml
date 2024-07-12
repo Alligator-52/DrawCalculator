@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DrawCalculator</string>
+    <string name="default_value">0</string>
 </resources>
