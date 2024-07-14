@@ -39,5 +39,6 @@ public class MainActivity extends AppCompatActivity
         Button currButton = (Button) v;
         String currentVal = currButton.getText().toString();
         Log.d("value",currentVal);
+        Log.d("nothing","This should be working right");
     }
 }
