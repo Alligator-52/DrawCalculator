@@ -38,7 +38,5 @@ public class MainActivity extends AppCompatActivity
         if (!(v instanceof Button)) return;
         Button currButton = (Button) v;
         String currentVal = currButton.getText().toString();
-        Log.d("value",currentVal);
-        Log.d("nothing","This should be working right");
     }
 }
