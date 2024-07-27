@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity
             {
                 List<String> rpn = ShuntingYard.convertToRPN(Expression);
                 Result = ShuntingYard.evaluateRPN(rpn);
-                _currentOutputText.setText(String.valueOf(Result));
+                String result = String.valueOf(Result);
+                _currentOutputText.setText(result);
+                _currentExpressionText.setText(result);   
             }
             return;
         }
