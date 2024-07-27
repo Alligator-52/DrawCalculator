@@ -6,7 +6,7 @@ import java.util.Stack;
 
 public class ShuntingYard
 {
-    public static void convertToRPN(String expression)
+    public static List<String> convertToRPN(String expression)
     {
         Stack<String> operators = new Stack<>();
         List<String> output = new ArrayList<>();
@@ -36,7 +36,7 @@ public class ShuntingYard
                     output.add(operators.pop());
                 }
             }
-            else
+            else if(Character.isLetter(token))
             {
                 StringBuilder operator = new StringBuilder();
                 while(i < expression.length() && Character.isLetter(expression.charAt(i)))
@@ -46,7 +46,33 @@ public class ShuntingYard
                 i--;
 
                 String op = operator.toString();
+                operator.setLength(0);
+                if(Operator.isOperator(op) || Operator.isFunction(op))
+                {
+                    while(!operators.isEmpty() && Operator.isOperator(operators.peek()) &&
+                            Operator.getPrecedence(op) <= Operator.getPrecedence(operators.peek()))
+                    {
+                        output.add(operators.pop());
+                    }
+                    operators.push((op));
+                }
+            }
+            else if (!Character.isLetter(token) && Operator.isOperator(String.valueOf(token)))
+            {
+                while(!operators.isEmpty() && Operator.isOperator(operators.peek()) &&
+                        Operator.getPrecedence(String.valueOf(token)) <= Operator.getPrecedence(operators.peek()))
+                {
+                    output.add(operators.pop());
+                }
+                operators.push(String.valueOf(token));
             }
         }
+
+        while(!operators.isEmpty())
+        {
+            output.add(operators.pop());
+        }
+
+        return output;
     }
 }
