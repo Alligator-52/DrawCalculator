@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity
         _currentExpressionText = findViewById(R.id.currentCalc);
         _currentOutputText = findViewById(R.id.solutionView);
         ExpressionToShow = "";
+        Expression = "";
+        Result = 0;
+        _currentOutputText.setText("0");
+        _currentExpressionText.setText("0");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) ->
         {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -46,13 +50,27 @@ public class MainActivity extends AppCompatActivity
         if (!(v instanceof Button)) return;
         Button currButton = (Button) v;
         String currentText = currButton.getText().toString();
+        if(currentText.equals("AC"))
+        {
+            Expression = "";
+            ExpressionToShow = "";
+            _currentExpressionText.setText("0");
+            _currentOutputText.setText("0");
+            return;
+        }
+//        if (currentText.equals("C"))
+//        {
+//
+//            ExpressionToShow
+//            return;
+//        }
         if(currentText.equals("="))
         {
             if(!Expression.isEmpty())
             {
                 List<String> rpn = ShuntingYard.convertToRPN(Expression);
                 Result = ShuntingYard.evaluateRPN(rpn);
-                //_currentOutputText.setText();
+                _currentOutputText.setText(String.valueOf(Result));
             }
             return;
         }

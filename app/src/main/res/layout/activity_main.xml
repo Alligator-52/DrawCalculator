@@ -67,8 +67,7 @@
                 android:textSize="20sp"
                 app:cornerRadius="100dp"
                 app:iconGravity="textStart"
-                app:iconPadding="10dp"
-                app:tag = ""/>
+                app:iconPadding="10dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/CBtn"
