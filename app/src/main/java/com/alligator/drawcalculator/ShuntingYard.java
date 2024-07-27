@@ -57,7 +57,7 @@ public class ShuntingYard
                     operators.push((op));
                 }
             }
-            else if (!Character.isLetter(token) && Operator.isOperator(String.valueOf(token)))
+            else if (Operator.isOperator(String.valueOf(token)))
             {
                 while(!operators.isEmpty() && Operator.isOperator(operators.peek()) &&
                         Operator.getPrecedence(String.valueOf(token)) <= Operator.getPrecedence(operators.peek()))
@@ -74,5 +74,69 @@ public class ShuntingYard
         }
 
         return output;
+    }
+
+    public static double evaluateRPN(List<String> postfix)
+    {
+        Stack<Double> evalStack = new Stack<>();
+
+        for (String token : postfix) {
+            if (token.matches("\\d+(\\.\\d+)?")) {
+                evalStack.push(Double.parseDouble(token));
+            } else {
+                if (Operator.isFunction(token)) {
+                    double a = evalStack.pop();
+                    switch (token) {
+                        case "sin":
+                            evalStack.push(Math.sin(a));
+                            break;
+                        case "cos":
+                            evalStack.push(Math.cos(a));
+                            break;
+                        case "tan":
+                            evalStack.push(Math.tan(a));
+                            break;
+                        case "log":
+                            evalStack.push(Math.log(a));
+                            break;
+                        case "sqrt":
+                            evalStack.push(Math.sqrt(a));
+                            break;
+                        case "asin":
+                            evalStack.push(Math.asin(a));
+                            break;
+                        case "acos":
+                            evalStack.push(Math.acos(a));
+                            break;
+                        case "atan":
+                            evalStack.push(Math.atan(a));
+                            break;
+                    }
+                } else {
+                    double b = evalStack.pop();
+                    double a = evalStack.pop();
+                    switch (token) {
+                        case "+":
+                            evalStack.push(a + b);
+                            break;
+                        case "-":
+                            evalStack.push(a - b);
+                            break;
+                        case "*":
+                            evalStack.push(a * b);
+                            break;
+                        case "/":
+                            evalStack.push(a / b);
+                            break;
+                        case "^":
+                            evalStack.push(Math.pow(a, b));
+                            break;
+                    }
+                }
+            }
+        }
+
+        return evalStack.pop();
+
     }
 }

@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
 {
     // <editor-fold desc="Public Declarations">
@@ -44,7 +46,16 @@ public class MainActivity extends AppCompatActivity
         if (!(v instanceof Button)) return;
         Button currButton = (Button) v;
         String currentText = currButton.getText().toString();
-        if(currentText.equals("=")) return;
+        if(currentText.equals("="))
+        {
+            if(!Expression.isEmpty())
+            {
+                List<String> rpn = ShuntingYard.convertToRPN(Expression);
+                Result = ShuntingYard.evaluateRPN(rpn);
+                //_currentOutputText.setText();
+            }
+            return;
+        }
         ExpressionToShow += currentText;
         if(currentText.equals("x")) currentText = "*";
         Expression += currentText;
