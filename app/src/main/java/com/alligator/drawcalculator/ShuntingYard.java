@@ -128,6 +128,9 @@ public class ShuntingYard
                         case "/":
                             evalStack.push(a / b);
                             break;
+                        case "%":
+                            evalStack.push(a*(b/100));
+                            break;
                         case "^":
                             evalStack.push(Math.pow(a, b));
                             break;

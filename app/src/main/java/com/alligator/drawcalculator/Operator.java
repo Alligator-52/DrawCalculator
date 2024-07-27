@@ -12,6 +12,7 @@ public class Operator
         _precedenceMap.put("-", 1);
         _precedenceMap.put("*", 2);
         _precedenceMap.put("/", 2);
+        _precedenceMap.put("%", 2);
         _precedenceMap.put("^", 3);
         _precedenceMap.put("sin", 4);
         _precedenceMap.put("cos", 4);
