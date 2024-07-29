@@ -58,12 +58,22 @@ public class MainActivity extends AppCompatActivity
             _currentOutputText.setText("0");
             return;
         }
-//        if (currentText.equals("C"))
-//        {
-//
-//            ExpressionToShow
-//            return;
-//        }
+        if (currentText.equals("C"))
+        {
+            StringBuilder sb = new StringBuilder(_currentExpressionText.getText());
+            if(sb.length() <= 0)
+            {
+                _currentExpressionText.setText("0");
+                return;
+            }
+
+            sb.deleteCharAt(sb.length() - 1);
+
+            _currentExpressionText.setText(sb.toString());
+            Expression = sb.toString();
+
+            return;
+        }
         if(currentText.equals("="))
         {
             if(!Expression.isEmpty())
@@ -72,7 +82,7 @@ public class MainActivity extends AppCompatActivity
                 Result = ShuntingYard.evaluateRPN(rpn);
                 String result = String.valueOf(Result);
                 _currentOutputText.setText(result);
-                _currentExpressionText.setText(result);   
+                _currentExpressionText.setText(result);
             }
             return;
         }
